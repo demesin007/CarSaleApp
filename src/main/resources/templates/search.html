@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove</title>
+</head>
+<style>
+    .center {
+        text-align: center;
+    }
+    table {
+        margin: 25px;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    th, td {
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+<header>
+    <div class="center">
+        <img src="https://imageauto.kz/wp-content/uploads/2021/10/Camry-75.png" alt="My photo" width="650" height="500">
+    </div>
+</header>
+<body>
+<div style="display: flex; align-items: center;">
+    <a th:href="@{/car/main}">
+        <button>Back to main page</button>
+    </a>
+</div>
+
+<form method="post" th:action="@{/car/searchMan}">
+    <table>
+        <tr>
+            <td>
+                <input type="text" placeholder="manufacturer to search" th:name="carManToSearch">
+            </td>
+            <td>
+                <input type="submit" value="search">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<form method="post" th:action="@{/car/searchYear}">
+    <table>
+        <tr>
+            <td>
+                <input type="text" placeholder="year to search" th:name="carYearToSearch">
+            </td>
+            <td>
+                <input type="submit" value="search">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<form method="post" th:action="@{/car/searchModel}">
+    <table>
+        <tr>
+            <td>
+                <input type="text" placeholder="model to search" th:name="carModelToSearch">
+            </td>
+            <td>
+                <input type="submit" value="search">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<form method="post" th:action="@{/car/searchPrice}">
+    <table>
+        <tr>
+            <td>
+                <input type="text" placeholder="price to search" th:name="carPriceToSearch">
+            </td>
+            <td>
+                <input type="submit" value="search">
+            </td>
+        </tr>
+    </table>
+</form>
+<table id="cars">
+    <tr>
+        <th>ID</th>
+        <th>Manufacturer</th>
+        <th>Year</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Km</th>
+        <th>Extra</th>
+    </tr>
+    <tr th:each="car : ${searchList}">
+        <td th:text="${car.id}"></td>
+        <td th:text="${car.manufacturer}"></td>
+        <td th:text="${car.year}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.price}"></td>
+        <td th:text="${car.kmTraveled}"></td>
+        <td th:text="${car.extraInfo}"></td>
+    </tr>
+</table>
+</body>
+</html>

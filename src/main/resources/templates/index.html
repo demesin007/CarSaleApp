@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My car</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+        #root_container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #cars {
+            width: 50%;
+            border-collapse: collapse;
+            position: absolute;
+            top: 130%;
+        }
+
+        table {
+            margin: 25px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        th, td {
+            border-bottom: 1px solid #ddd;
+        }
+        form{
+            position: relative;
+            top: 100px;
+        }
+    </style>
+</head>
+<header>
+    <div class="center">
+        <img src="https://gas-kvas.com/grafic/uploads/posts/2023-09/1695891765_gas-kvas-com-p-kartinki-mashini-bmv-11.jpg" alt="My photo" width="1369" height="756">
+    </div>
+</header>
+
+<body>
+
+<div id="root_container">
+    <form method="post" th:action="@{/car/save}" th:object="${car}">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" placeholder="manufacturer" th:field="*{manufacturer}">
+                </td>
+                <td>
+                    <input type="text" placeholder="Year" th:field="*{year}">
+                </td>
+                <td>
+                    <input type="text" placeholder="Model" th:field="*{model}">
+                </td>
+                <td>
+                    <input type="text" placeholder="Price" th:field="*{price}">
+                </td>
+                <td>
+                    <input type="text" placeholder="Km Traveled" th:field="*{kmTraveled}">
+                </td>
+                <td>
+                    <input type="text" placeholder="Extra info" th:field="*{extraInfo}">
+                </td>
+                <td>
+                    <input type="submit" value="save">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="display: flex; align-items: center;">
+        <a th:href="@{/car/search}">
+            <button>Go to searching page</button>
+        </a>
+    </div>
+
+
+    </form>
+
+    <form method="post" th:action="@{/car/remove}">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" placeholder="id number" th:name="carIdToRemove">
+                </td>
+                <td>
+                    <input type="submit" value="remove">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <form method="post" th:action="@{/car/removeMan}">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" placeholder="manufacturer to remove" th:name="carManToRemove">
+                </td>
+                <td>
+                    <input type="submit" value="remove">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <form method="post" th:action="@{/car/removeYear}">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" placeholder="year to remove" th:name="carYearToRemove">
+                </td>
+                <td>
+                    <input type="submit" value="remove">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <form method="post" th:action="@{/car/removeModel}">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" placeholder="model to remove" th:name="carModelToRemove">
+                </td>
+                <td>
+                    <input type="submit" value="remove">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <form method="post" th:action="@{/car/removePrice}">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" placeholder="price to remove" th:name="carPriceToRemove">
+                </td>
+                <td>
+                    <input type="submit" value="remove">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+</div>
+</body>
+</html>

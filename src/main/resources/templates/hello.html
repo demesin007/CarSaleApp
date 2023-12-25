@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello HTML</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://static.tildacdn.com/tild3263-6630-4131-a532-663066323764/gotham_25_9296_oboi_.jpg'); /* Укажите путь к изображению Mustang */
+            background-size: cover;
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .car-details {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .buttons {
+            text-align: right;
+            padding: 70px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+<form
+
+        method="post">
+<div class="container-fluid">
+    <div class="row header">
+        <div class="col">
+            <h1>CarSale</h1>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary" href="/login">Войти</a>
+            <a class="btn btn-success" href="/registration">Зарегистрироваться</a>
+        </div>
+    </div>
+
+    <div class="row car-details">
+        <div class="col">
+            <h2></h2>
+            <!-- Добавьте здесь характеристики Mustang -->
+        </div>
+    </div>.
+
+    <div class="row buttons">
+        <div class="col">
+            <a class="btn btn-info" href="/car/search">Поиск</a>
+            <a class="btn btn-warning" href="/car/add">Добавить машину</a>
+            <a class="btn btn-secondary" href="/car/main">Главная</a>
+            <a class="btn btn-dark" href="/list">Список</a>
+        </div>
+    </div>
+</div>
+    </form>
+</body>
+</html>

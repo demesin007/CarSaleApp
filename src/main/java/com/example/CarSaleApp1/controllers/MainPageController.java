@@ -26,6 +26,16 @@ public class MainPageController {
         model.addAttribute("carList",carService.getAllCars());
         return "index";
     }
+    @GetMapping("/hello")
+    public String securityUrl() {
+        return "hello";
+    }
+
+    @GetMapping("/list")
+    public String securityvUrl() {
+        return "list";
+    }
+
 
     @PostMapping("/save")
     public String saveCar(Car car, Model model){

@@ -1,67 +1,95 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Hello HTML</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Carsale</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url('https://static.tildacdn.com/tild3263-6630-4131-a532-663066323764/gotham_25_9296_oboi_.jpg'); /* Укажите путь к изображению Mustang */
+            background-image: url('https://static.tildacdn.com/tild3263-6630-4131-a532-663066323764/gotham_25_9296_oboi_.jpg');
             background-size: cover;
             color: white;
         }
-
-        .header {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
         .car-details {
             text-align: center;
             padding: 20px;
+        }
+
+        .btn-danger{
+            margin-left: 500px;
+            background-color: dodgerblue;
+            border-color: dodgerblue;
+        }
+        .btn-warning{
+            background-color: dodgerblue;
+            border-color: dodgerblue;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: blanchedalmond;
+        }
+        .btn {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .nav-buttons {
+            text-align: center;
+            padding: 50px;
+        }
+        .car-details {
+            background-color: darkgray;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
             background-color: rgba(0, 0, 0, 0.5);
         }
 
-        .buttons {
-            text-align: right;
-            padding: 70px;
-            background-color: rgba(0, 0, 0, 0.5);
+        .car-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
+
     </style>
 </head>
 <body>
-<form
-
-        method="post">
-<div class="container-fluid">
-    <div class="row header">
-        <div class="col">
-            <h1>CarSale</h1>
-        </div>
-        <div class="col">
-            <a class="btn btn-primary" href="/login">Войти</a>
-            <a class="btn btn-success" href="/registration">Зарегистрироваться</a>
-        </div>
-    </div>
-
-    <div class="row car-details">
-        <div class="col">
-            <h2></h2>
-            <!-- Добавьте здесь характеристики Mustang -->
-        </div>
-    </div>.
-
-    <div class="row buttons">
-        <div class="col">
-            <a class="btn btn-info" href="/car/search">Поиск</a>
-            <a class="btn btn-warning" href="/car/add">Добавить машину</a>
-            <a class="btn btn-secondary" href="/car/main">Главная</a>
-            <a class="btn btn-dark" href="/list">Список</a>
+<form method="post" th:action="@{/hello}" th:object="${car}">
+    <div class="container-fluid">
+        <div class="row header">
+            <div class="col">
+                <div class="nav-buttons">
+                    <div class="nav-button">
+                        <a class="btn btn-primary" th:href="@{/car/hello}">Home</a>
+                        <a class="btn btn-secondary" th:href="@{/car/main}">CarAdd</a>
+                        <a class="btn btn-info" th:href="@{/car/search}">Search</a>
+                        <a class="btn btn-danger" th:href="@{/login}">Log in</a>
+                        <a class="btn btn-warning" th:href="@{/registration}">Sign in</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="car-details">
+                    <h2 class="text-center">Car Information</h2>
+                    <img class="car-image" th:src="@{'https://avatars.mds.yandex.net/i?id=a0ccf90b8ac14a016999829af8a3fa7cc716f407-9107081-images-thumbs&n=13'}" alt="Car Image">
+                    <p><strong>Manufacturer:</strong> Toyota</p>
+                    <p><strong>Model:</strong> Camry</p>
+                    <p><strong>Year:</strong> 2022</p>
+                    <p><strong>Price:</strong> $25,000</p>
+                    <p><strong>kmtraveled:</strong> 30,000 km</p>
+                    <p><strong>Additional Info:</strong> Reliable and fuel-efficient sedan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 </body>
 </html>

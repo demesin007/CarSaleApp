@@ -6,5 +6,6 @@ CREATE TABLE cars
     model VARCHAR(255),
     price integer,
     kmtraveled integer,
-    info VARCHAR(255)
+    info VARCHAR(255),
+
 );

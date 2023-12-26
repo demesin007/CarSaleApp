@@ -22,6 +22,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
     public String getManufacturer() {
         return manufacturer;
     }
@@ -89,4 +90,5 @@ public class Car {
     public void setId(int hashCode) {
         this.id=hashCode;
     }
+
 }

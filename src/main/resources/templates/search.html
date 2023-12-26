@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title>Remove</title>
 </head>
 <style>
     .center {
         text-align: center;
+    }
+    body {
+        background-image: url('https://static.tildacdn.com/tild3263-6630-4131-a532-663066323764/gotham_25_9296_oboi_.jpg');
+        background-size: cover;
+        color: white;
+
     }
     table {
         margin: 25px;
@@ -19,18 +26,56 @@
     th, td {
         border-bottom: 1px solid #ddd;
     }
+    .btn-danger{
+        margin-left: 500px;
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+    }
+    .btn-warning{
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+        color: white;
+    }
+    a {
+        text-decoration: none;
+        color: blanchedalmond;
+    }
+    .btn {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+    .nav-buttons {
+        text-align: center;
+        padding: 50px;
+
+    }
+    #cars th{
+        font-size: 25px;
+        padding: 12px;
+    }
 </style>
 <header>
-    <div class="center">
-        <img src="https://imageauto.kz/wp-content/uploads/2021/10/Camry-75.png" alt="My photo" width="650" height="500">
-    </div>
+
 </header>
 <body>
-<div style="display: flex; align-items: center;">
-    <a th:href="@{/car/main}">
-        <button>Back to main page</button>
-    </a>
-</div>
+<form method="post" th:action="@{/search}" th:object="${car}">
+    <div class="container-fluid">
+        <div class="row header">
+            <div class="col">
+                <div class="nav-buttons">
+                    <div class="nav-button">
+                        <a class="btn btn-primary" th:href="@{/car/hello}">Home</a>
+                        <a class="btn btn-secondary" th:href="@{/car/main}">CarAdd</a>
+                        <a class="btn btn-info" th:href="@{/car/search}">Search</a>
+                        <a class="btn btn-danger" th:href="@{/login}">Log in</a>
+                        <a class="btn btn-warning" th:href="@{/registration}">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 
 <form method="post" th:action="@{/car/searchMan}">
     <table>
